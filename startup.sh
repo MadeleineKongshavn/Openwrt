@@ -12,9 +12,12 @@
 #
 #
 
-
 # Find all occurences of https:// and replace them with http://.
 # This allow us to install packages without needing SSL support and not needing to add '--no-check-certificate'.
+
+hostname=$1
+# Setting hostname to the input 
+sed -i "s/option hostname 'OpenWrt'/option hostname \'$hostname\'/gI"  /etc/config/system
 
 FILE=/etc/opkg/distfeeds.conf
 if test -f "$FILE"; then
@@ -72,13 +75,13 @@ then
     then
         echo "Date format: YYYY-MM-DD hh:mm"
         read inputdate
-        v=$(date -s $inputdate)
+        v=$(date -s \'$inputdate\')
 
         status=$?
         while [[ $status -ne 0 ]];
         do
             read inputdate
-            v=$(date -s $inputdate)
+            v=$(date -s \'$inputdate\')
             status=$?
 
             if [[ $status -ne 0 ]];
@@ -130,6 +133,13 @@ echo "Date set to: $d"
 
 # Configure HTTPS
 sed -i 's/http:\/\//https:\/\//gI' $FILE
+
+
+
+
+
+
+
 
 echo
 echo "--------------------------------"
