@@ -75,13 +75,13 @@ then
     then
         echo "Date format: YYYY-MM-DD hh:mm"
         read inputdate
-        v=$(date -s \'$inputdate\')
+        v=$(date -s "$inputdate")
 
         status=$?
         while [[ $status -ne 0 ]];
         do
             read inputdate
-            v=$(date -s \'$inputdate\')
+            v=$(date -s "$inputdate")
             status=$?
 
             if [[ $status -ne 0 ]];
