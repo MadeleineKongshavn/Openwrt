@@ -103,7 +103,7 @@ mkdir -p /etc/ssl/certs
 # Set the directory so wget knows where to look
 export SSL_CERT_DIR=/etc/ssl/certs
 
-pktAll=("librt" "libpcre" "zlib" "libc" "ca-bundle" "libustream-openssl" "ca-certificates" "wget-ssl", "nano", "bash")
+pktAll=("librt" "libpcre" "zlib" "libc" "ca-bundle" "libustream-openssl" "ca-certificates" "wget-ssl" "nano" "bash")
 for t in ${pktAll[@]}; do
     opkg install $t
     if [[ $? != 0 ]];
@@ -114,7 +114,7 @@ for t in ${pktAll[@]}; do
 done
 
 
-pkts=("librt" "libpcre" "zlib" "libc" "ca-bundle" "ca-certificates" "libustream-openssl*" "wget-ssl" "ntpdate" "nano", "bash");
+pkts=("librt" "libpcre" "zlib" "libc" "ca-bundle" "ca-certificates" "libustream-openssl*" "wget-ssl" "ntpdate" "nano" "bash");
 echo "-----------------------------------------------------------------------------------------------------"
 for t in ${pkts[@]}; do
    v=$(opkg list_installed $t)

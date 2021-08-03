@@ -9,8 +9,6 @@
 echo "Current setup!"
 ifconfig
 
-$IP=$1
-
 echo "" > /etc/config/network
 
 echo "config interface 'loopback'"                                 >> /etc/config/network
