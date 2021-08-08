@@ -39,6 +39,21 @@ config	wifi-iface
 #depending on the number of device-supported channels > 100. You may also experience 1 minute delay on each automatic channel change, as 
 #the same scan delay is required for regulation compliance.
 
+## Trying to start Hostapd
+wifi up 
+
+
+## If a problem with setup was found, the command 'logread' can be used to debug the problem.
+logread
+
+
+
+#If everything fails, consider removing the wireless configuration and re-configure it. 
+rm -f /etc/config/wireless # Removing the wireless config file
+wifi config # Re-creates a standard config file. 
+
+
+
 ## Wireless lan confiugred!
 uci show wireless
 
@@ -47,3 +62,5 @@ echo "----------------------------------------------"
 echo "                AP configured!                "
 echo "----------------------------------------------"
 echo
+
+hostnamectl  # Change hostname
