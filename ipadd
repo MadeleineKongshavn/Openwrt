@@ -1,0 +1,5 @@
+# Content of /etc/network/interfaces
+iface eth0 inet static
+address 193.156.3.74
+netmask 255.255.255.0
+gateway 193.156.3.1
